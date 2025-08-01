@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    
+    # '7579652262:AAE928Lxn5Ifa2pm4TBoZJu4vnhsR0qwkAs '
 
     'menu.apps.MenuConfig',
     'accounts.apps.AccountsConfig',
@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 DATABASES = {
         'default': {
-        'ENGINE': ‘django.db.backends.postgresql’,
-        'NAME': ‘your_database_name’,
-        'USER'': ‘your_username’,
-        'PASSWORD': ‘your_password’,
-        'HOST': ‘localhost’,
-        'PORT': ‘5432’, # default PostgreSQL port
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Merve',
+        'USER': 'postgres',
+        'PASSWORD': 'BSF_traders43',
+        'HOST': 'localhost',
+        'PORT': '5432', 
 }
 }
 
