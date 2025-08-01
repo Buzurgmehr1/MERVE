@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Your Basket{% endblock %}
+
+{% block content %}
+  <h1 class="text-3xl font-bold mb-6 text-center">🧺 Your Basket</h1>
+
+  {% if items %}
+    <div class="space-y-6 max-w-3xl mx-auto">
+      {% for item in items %}
+        <div class="flex items-center justify-between bg-white p-4 shadow rounded-lg">
+          <div class="flex items-center gap-4">
+            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="w-16 h-16 rounded object-cover">
+            <div>
+              <h2 class="font-semibold text-lg">{{ item.product.name }}</h2>
+              <p class="text-sm text-gray-500">Quantity: {{ item.quantity }}</p>
+              <p class="text-sm text-gray-500">Price: {{ item.product.price }} × {{ item.quantity }}</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <p class="font-bold text-indigo-600 text-lg">{{ item.subtotal }} TJS</p>
+
+            <form action="{% url 'delete_from_basket' item.product.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" 
+                      class="text-red-600 hover:text-red-800 font-semibold transition"
+                      title="Remove from basket">
+                🗑️ Remove
+              </button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-right mt-8 text-xl font-bold max-w-3xl mx-auto">
+      Total: {{ total }} TJS
+    </div>
+
+    <!-- ✅ Place order form -->
+    <form method="post" action="{% url 'create_orders_from_basket' %}" class="max-w-3xl mx-auto mt-6 text-right">
+      {% csrf_token %}
+      <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded shadow transition">
+        ✅ Place Order
+      </button>
+    </form>
+  {% else %}
+    <p class="text-center text-gray-600 text-lg">Your basket is empty 🫤</p>
+  {% endif %}
+{% endblock %}

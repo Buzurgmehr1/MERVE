@@ -17,8 +17,8 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField( max_length=50)
     image = models.ImageField()
-    category_id = models.ForeignKey(Category,related_name='category_product', on_delete=models.CASCADE)
-    price = models.IntegerField()
+    category = models.ForeignKey(Category,related_name='products', on_delete=models.CASCADE)
+    price = models.PositiveIntegerField()
     description = models.TextField()
 
     def __str__(self):
