@@ -38,12 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # '7579652262:AAE928Lxn5Ifa2pm4TBoZJu4vnhsR0qwkAs '
+
 
     'menu.apps.MenuConfig',
     'accounts.apps.AccountsConfig',
     'booking.apps.BookingConfig'
 ]
+
+TELEGRAM = {
+    'bot_token': '7579652262:AAE928Lxn5Ifa2pm4TBoZJu4vnhsR0qwkAs ',
+    'channel_name': 'Merve',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -9,8 +9,7 @@ def add_to_basket(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     basket = request.session.get('basket', {})
 
-
-    if product_id in basket:
+    if str(product_id) in basket:
         basket[str(product_id)] += 1
     else:
         basket[str(product_id)] = 1

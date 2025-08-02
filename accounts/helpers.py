@@ -23,3 +23,4 @@ WELKOME TO FOOD.tj. To complete your registration click 👇👇👇
             'is_sent':False,
             'message':str(e)
         }
+    
